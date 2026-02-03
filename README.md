@@ -1,6 +1,6 @@
 # Presentations
 
-This repository contains talks and presentations using mitsuhiko's presentation system.
+This repository contains presentations using skale.devs presentation system.
 
 ## Structure
 
@@ -99,4 +99,4 @@ Visit [https://devskale.github.io/presentations/](https://devskale.github.io/pre
 
 ## Credit
 
-Based on [mitsuhiko/talks](https://github.com/mitsuhiko/talks) presentation system.
+Based on [devskale/presentations](https://github.com/devskale/presentations) presentation system.
