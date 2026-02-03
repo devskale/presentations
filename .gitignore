@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Build artifacts
+_site/
+*.html.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.log
+*.tmp

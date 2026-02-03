@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Example Talk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Zalando+Sans+Expanded:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Zalando Sans Expanded", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: #0a1214;
+        color: #f0f4f5;
+      }
+
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .deck {
+        width: 1920px;
+        height: 1080px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: center center;
+        background: #0a1214;
+      }
+
+      .slide {
+        display: none;
+        box-sizing: border-box;
+        height: 1080px;
+        width: 1920px;
+        padding: 65px 154px;
+        align-content: center;
+      }
+
+      .slide.active {
+        display: grid;
+      }
+
+      h1 {
+        font-size: 90px;
+        margin: 0 0 16px;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-size: 72px;
+        margin: 0 0 24px;
+        font-weight: 600;
+      }
+
+      h3 {
+        font-size: 45px;
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 51px;
+        line-height: 1.6;
+        margin: 8px 0;
+      }
+
+      li {
+        font-size: 48px;
+        line-height: 1.8;
+      }
+
+      ul {
+        padding-left: 64px;
+        margin: 16px 0;
+      }
+
+      .subtitle {
+        font-size: 46px;
+        color: #a0b0b4;
+        margin-top: 16px;
+      }
+
+      .quote {
+        font-style: italic;
+        border-left: 6px solid #f0f4f5;
+        padding-left: 38px;
+        margin: 24px 0;
+        font-size: 45px;
+      }
+
+      .code {
+        font-family: "DM Mono", monospace;
+        background: #1a2a2e;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+
+      .big-text {
+        font-size: 77px;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      .huge-text {
+        font-size: 102px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .steps {
+        margin-top: 16px;
+      }
+
+      .step.hidden {
+        visibility: hidden;
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        margin-top: 32px;
+      }
+
+      .comparison ul {
+        margin: 0;
+      }
+
+      .comparison li {
+        font-size: 42px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="deck">
+    <!-- Slide 1: Title -->
+    <section class="slide" data-slide="1">
+      <div>
+        <h1>Example Talk</h1>
+        <p class="subtitle">A template for your presentations</p>
+      </div>
+    </section>
+
+    <!-- Slide 2: Overview -->
+    <section class="slide" data-slide="2">
+      <div>
+        <h2>Overview</h2>
+        <ul class="steps">
+          <li class="step">Point one</li>
+          <li class="step">Point two</li>
+          <li class="step">Point three</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Slide 3: Code example -->
+    <section class="slide" data-slide="3">
+      <div>
+        <h2>Code Example</h2>
+        <p>Here's some code:</p>
+        <p><span class="code">console.log("Hello, world!");</span></p>
+      </div>
+    </section>
+
+    <!-- Slide 4: Quote -->
+    <section class="slide" data-slide="4">
+      <div>
+        <div class="quote">
+          This is a quote that stands out from the rest of the content.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: Big text -->
+    <section class="slide" data-slide="5">
+      <div class="center">
+        <p class="huge-text">Big Impact</p>
+        <p class="big-text">For emphasis</p>
+      </div>
+    </section>
+
+    <!-- Slide 6: Comparison -->
+    <section class="slide" data-slide="6">
+      <div>
+        <h2>Comparison</h2>
+        <div class="comparison">
+          <div>
+            <h3>Option A</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Option B</h3>
+            <ul>
+              <li>Feature 1</li>
+              <li>Feature 2</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Thanks -->
+    <section class="slide" data-slide="7">
+      <div class="center">
+        <h1>Thanks</h1>
+      </div>
+    </section>
+    </div>
+
+    <script>
+      const deck = document.querySelector(".deck");
+      const DECK_WIDTH = 1920;
+      const DECK_HEIGHT = 1080;
+
+      function scaleDeck() {
+        const scaleX = window.innerWidth / DECK_WIDTH;
+        const scaleY = window.innerHeight / DECK_HEIGHT;
+        const scale = Math.min(scaleX, scaleY);
+        deck.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      }
+
+      window.addEventListener("resize", scaleDeck);
+      scaleDeck();
+
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      let slideIndex = 0;
+      let stepIndex = 0;
+
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
+
+      function applySteps(slide) {
+        const steps = Array.from(slide.querySelectorAll(".step"));
+        steps.forEach((step, index) => {
+          step.classList.toggle("hidden", index >= stepIndex);
+        });
+        return steps.length;
+      }
+
+      function updateHash() {
+        const slideNumber = slides[slideIndex].dataset.slide;
+        const stepSuffix = stepIndex > 0 ? `.${stepIndex}` : "";
+        history.replaceState(null, "", `#${slideNumber}${stepSuffix}`);
+      }
+
+      function manageLazyIframes(activeSlide) {
+        slides.forEach((slide) => {
+          const iframe = slide.querySelector("iframe[data-src]");
+          if (!iframe) return;
+          
+          if (slide === activeSlide) {
+            if (!iframe.dataset.loaded) {
+              iframe.src = iframe.dataset.src;
+              iframe.dataset.loaded = "true";
+            }
+          } else {
+            if (iframe.dataset.loaded) {
+              iframe.src = "about:blank";
+              delete iframe.dataset.loaded;
+            }
+          }
+        });
+      }
+
+      function showSlide(index, { updateHash: shouldUpdateHash = true } = {}) {
+        slideIndex = clamp(index, 0, slides.length - 1);
+        slides.forEach((slide, idx) => {
+          slide.classList.toggle("active", idx === slideIndex);
+        });
+        const stepCount = applySteps(slides[slideIndex]);
+        stepIndex = clamp(stepIndex, 0, stepCount);
+        applySteps(slides[slideIndex]);
+        manageLazyIframes(slides[slideIndex]);
+
+        if (shouldUpdateHash) {
+          updateHash();
+        }
+      }
+
+      function parseHash(rawValue) {
+        const [slideValue, stepValue] = rawValue.split(".");
+        const slideNumber = Number.parseInt(slideValue, 10);
+        const index = Number.isNaN(slideNumber)
+          ? 0
+          : slides.findIndex((slide) => Number(slide.dataset.slide) === slideNumber);
+        const parsedStep = Number.parseInt(stepValue, 10);
+        return {
+          index: index === -1 ? 0 : index,
+          step: Number.isNaN(parsedStep) ? 0 : parsedStep,
+        };
+      }
+
+      function resolveRelativeHash(rawValue) {
+        const match = rawValue.match(/^(.*)~(next|prev)$/);
+        if (!match) {
+          return false;
+        }
+        const [, baseValue, direction] = match;
+        const baseState = baseValue
+          ? parseHash(baseValue)
+          : { index: slideIndex, step: stepIndex };
+        slideIndex = clamp(baseState.index, 0, slides.length - 1);
+        stepIndex = Math.max(0, baseState.step);
+        showSlide(slideIndex, { updateHash: false });
+        if (direction === "next") {
+          next({ updateHash: true });
+        } else {
+          prev({ updateHash: true });
+        }
+        return true;
+      }
+
+      function syncFromHash() {
+        const rawValue = window.location.hash.replace("#", "");
+        if (resolveRelativeHash(rawValue)) {
+          return;
+        }
+        const parsed = parseHash(rawValue);
+        stepIndex = parsed.step;
+        showSlide(parsed.index, { updateHash: false });
+      }
+
+      function next({ updateHash: shouldUpdateHash = true } = {}) {
+        const steps = Array.from(slides[slideIndex].querySelectorAll(".step"));
+        if (stepIndex < steps.length) {
+          stepIndex += 1;
+          applySteps(slides[slideIndex]);
+          if (shouldUpdateHash) {
+            updateHash();
+          }
+          return;
+        }
+        if (slideIndex >= slides.length - 1) {
+          return;
+        }
+        stepIndex = 0;
+        showSlide(slideIndex + 1, { updateHash: shouldUpdateHash });
+      }
+
+      function prev({ updateHash: shouldUpdateHash = true } = {}) {
+        if (stepIndex > 0) {
+          stepIndex -= 1;
+          applySteps(slides[slideIndex]);
+          if (shouldUpdateHash) {
+            updateHash();
+          }
+          return;
+        }
+        const nextIndex = clamp(slideIndex - 1, 0, slides.length - 1);
+        slideIndex = nextIndex;
+        const steps = Array.from(slides[slideIndex].querySelectorAll(".step"));
+        stepIndex = steps.length;
+        showSlide(slideIndex, { updateHash: shouldUpdateHash });
+      }
+
+      function first() {
+        stepIndex = 0;
+        showSlide(0);
+      }
+
+      function last() {
+        stepIndex = 0;
+        showSlide(slides.length - 1);
+      }
+
+      function goto(hash) {
+        const parsed = parseHash(hash.replace("#", ""));
+        stepIndex = parsed.step;
+        showSlide(parsed.index);
+      }
+
+      window.addEventListener("hashchange", syncFromHash);
+      window.addEventListener("keydown", (event) => {
+        if (["ArrowRight", " ", "PageDown"].includes(event.key)) {
+          event.preventDefault();
+          next();
+        }
+        if (["ArrowLeft", "PageUp"].includes(event.key)) {
+          event.preventDefault();
+          prev();
+        }
+        if (event.key === "Home") {
+          event.preventDefault();
+          first();
+        }
+        if (event.key === "End") {
+          event.preventDefault();
+          last();
+        }
+      });
+
+      window.miniPresenter = {
+        next,
+        prev,
+        first,
+        last,
+        goto,
+        getSlideList() {
+          return slides.map((slide) => `#${slide.dataset.slide}`);
+        },
+        getCurrentSlide() {
+          return window.location.hash || `#${slides[slideIndex].dataset.slide}`;
+        },
+        getNotes(slideId) {
+          return null;
+        }
+      };
+
+      syncFromHash();
+    </script>
+  </body>
+</html>
