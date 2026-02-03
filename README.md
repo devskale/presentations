@@ -22,11 +22,13 @@ This repository contains talks and presentations using mitsuhiko's presentation 
 ### Option 1: HTML-based Presentations
 
 1. Create a new directory under `dynamic/`:
+
    ```bash
    mkdir -p dynamic/your-talk-name
    ```
 
 2. Copy the template from `dynamic/example-talk/`:
+
    ```bash
    cp -r dynamic/example-talk/* dynamic/your-talk-name/
    ```
@@ -47,6 +49,7 @@ This repository contains talks and presentations using mitsuhiko's presentation 
 ### Option 2: Marp-based Presentations
 
 1. Create a new directory under `dynamic/`:
+
    ```bash
    mkdir -p dynamic/your-talk-name
    ```
@@ -65,6 +68,7 @@ This repository contains talks and presentations using mitsuhiko's presentation 
 ## URL Navigation
 
 Slides are accessible via URL hash:
+
 - `#1` - Go to slide 1
 - `#1.2` - Go to slide 1, step 2
 - `#1~next` - Go to slide 1, then navigate to next
@@ -74,7 +78,15 @@ Slides are accessible via URL hash:
 
 Presentations are automatically deployed to GitHub Pages when you push to `main` or `master` branch.
 
-Visit `https://<your-username>.github.io/presentations/` to see all talks.
+Visit [https://devskale.github.io/presentations/](https://devskale.github.io/presentations/) to see all talks.
+
+## Available Presentations
+
+- **[skaledev (Me and the Machina)](https://devskale.github.io/presentations/skaledev/)** - Current working presentation
+- **[Me and the Machine](https://devskale.github.io/presentations/dynamic/me-and-the-machine/me-and-the-machine.html)**
+- **[I Was Observing When My Agent Built Its Own Harness](https://devskale.github.io/presentations/dynamic/i-was-questioning-life/index.html)**
+- **[Example Talk](https://devskale.github.io/presentations/dynamic/example-talk/index.html)**
+- **[Marp Example](https://devskale.github.io/presentations/dynamic/marp-example/talk.html)**
 
 ## Features
 

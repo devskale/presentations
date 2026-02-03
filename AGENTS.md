@@ -4,7 +4,7 @@ This repository contains HTML and Marp-based presentations that deploy to GitHub
 
 ## Presentations Index
 
-- **[skaledev](dynamic/skaledev/260203-skale.html)** - `dynamic/skaledev/`
+- **[skaledev](https://devskale.github.io/presentations/skaledev/)** - `dynamic/skaledev/`
   - Current working presentation
   - Features WebGL backdrop and Marp slides
   - German content with skale.dev references
@@ -54,6 +54,8 @@ make open      # Build and open in browser
 ### Deployment
 
 Presentations automatically deploy to GitHub Pages on push to `main` or `master`. The CI workflow builds all talks in `dynamic/` and publishes to `_site/`.
+
+Live URL: https://devskale.github.io/presentations/
 
 ## Code Style Guidelines
 
